@@ -9,6 +9,13 @@ import {useState} from 'react'
 
 // const page = ({ params: { slug } }) => {
 const page = ({ params }) => {
+
+
+      
+
+
+
+
     const {slug} = React.use(params);
     const router = useRouter();
     const location = usePathname()
