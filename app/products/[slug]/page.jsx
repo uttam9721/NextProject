@@ -1,12 +1,26 @@
+'use client'
 import React from 'react';
 import { products } from '../../data.js';
 
-const page = ({ params: { slug } }) => {
+
+import {usePathname, useRouter} from "next/navigation";
+import {useState} from 'react'
+
+
+// const page = ({ params: { slug } }) => {
+const page = ({ params }) => {
+    const {slug} = React.use(params);
+    const router = useRouter();
+    const location = usePathname()
+
+    const [counter,setCounter] = useState(0)
+
+
   const newProduct = products.filter((e) => 
     e.category.toLowerCase().includes(slug.toLowerCase())
   );
   console.log("printing the params id : ", newProduct);
-
+ console.log(location);
   return (
   <div style={{ padding: '20px', backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
   <h1 style={{ color: '#333', marginBottom: '20px' }}>Welcome to {slug}</h1>
@@ -36,6 +50,7 @@ const page = ({ params: { slug } }) => {
       </div>
     ))
   }
+  <button onClick={()=>router.push('/products')}>Back To Product</button>
 </div>
 
   );
