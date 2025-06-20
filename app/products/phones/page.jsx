@@ -3,7 +3,7 @@ import React from 'react'
 const page = () => {
   return (
     <div>
-      <h1>App.js</h1>
+      this is phones routes
     </div>
   )
 }
